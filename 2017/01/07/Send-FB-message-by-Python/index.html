@@ -5,19 +5,16 @@
   
   <title>Send FB message by Python | CB&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="InstallationSimple:
-1$ pip install fbchat">
+  <meta name="description" content="InstallationInstall:1$ pip install fbchat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Send FB message by Python">
 <meta property="og:url" content="http://yoursite.com/2017/01/07/Send-FB-message-by-Python/index.html">
 <meta property="og:site_name" content="CB's Blog">
-<meta property="og:description" content="InstallationSimple:
-1$ pip install fbchat">
-<meta property="og:updated_time" content="2017-01-07T12:49:18.000Z">
+<meta property="og:description" content="InstallationInstall:1$ pip install fbchat">
+<meta property="og:updated_time" content="2017-01-07T12:52:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Send FB message by Python">
-<meta name="twitter:description" content="InstallationSimple:
-1$ pip install fbchat">
+<meta name="twitter:description" content="InstallationInstall:1$ pip install fbchat">
   
     <link rel="alternate" href="/atom.xml" title="CB&#39;s Blog" type="application/atom+xml">
   
@@ -105,11 +102,10 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Simple:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install fbchat</div></pre></td></tr></table></figure>
+        <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install:"></a>Install:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install fbchat</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fbchat</div><div class="line"></div><div class="line">client = fbchat.Client(<span class="string">"YOUR_ID"</span>, <span class="string">"YOUR_PASSWORD"</span>)</div></pre></td></tr></table></figure>
-<h1 id="Sending-a-Message"><a href="#Sending-a-Message" class="headerlink" title="Sending a Message"></a>Sending a Message</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">friends = client.getUsers(<span class="string">"FRIEND'S NAME"</span>)  <span class="comment"># return a list of names</span></div><div class="line">friend = friends[<span class="number">0</span>]</div><div class="line">sent = client.send(friend.uid, <span class="string">"Your Message"</span>)</div><div class="line"><span class="keyword">if</span> sent:</div><div class="line">    print(<span class="string">"Message sent successfully!"</span>)</div><div class="line"><span class="comment">#  IMAGES</span></div><div class="line">client.sendLocalImage(friend.uid,message=<span class="string">'&lt;message text&gt;'</span>,image=<span class="string">'&lt;path/to/image/file&gt;'</span>) <span class="comment"># send local image</span></div><div class="line">imgurl = <span class="string">"http://i.imgur.com/LDQ2ITV.jpg"</span></div><div class="line">client.sendRemoteImage(friend.uid,message=<span class="string">'&lt;message text&gt;'</span>, image=imgurl) <span class="comment"># send image from image url</span></div></pre></td></tr></table></figure>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Create-Client"><a href="#Create-Client" class="headerlink" title="Create Client"></a>Create Client</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fbchat</div><div class="line"></div><div class="line">client = fbchat.Client(<span class="string">"YOUR_ID"</span>, <span class="string">"YOUR_PASSWORD"</span>)</div></pre></td></tr></table></figure>
+<h2 id="Sending-a-Message"><a href="#Sending-a-Message" class="headerlink" title="Sending a Message"></a>Sending a Message</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">friends = client.getUsers(<span class="string">"FRIEND'S NAME"</span>)  <span class="comment"># return a list of names</span></div><div class="line">friend = friends[<span class="number">0</span>]</div><div class="line">sent = client.send(friend.uid, <span class="string">"Your Message"</span>)</div><div class="line"><span class="keyword">if</span> sent:</div><div class="line">    print(<span class="string">"Message sent successfully!"</span>)</div><div class="line"><span class="comment">#  IMAGES</span></div><div class="line">client.sendLocalImage(friend.uid,message=<span class="string">'&lt;message text&gt;'</span>,image=<span class="string">'&lt;path/to/image/file&gt;'</span>) <span class="comment"># send local image</span></div><div class="line">imgurl = <span class="string">"http://i.imgur.com/LDQ2ITV.jpg"</span></div><div class="line">client.sendRemoteImage(friend.uid,message=<span class="string">'&lt;message text&gt;'</span>, image=imgurl) <span class="comment"># send image from image url</span></div></pre></td></tr></table></figure>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://github.com/carpedm20/fbchat" target="_blank" rel="external">fbchat</a></li>
 </ul>
@@ -117,7 +113,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/07/Send-FB-message-by-Python/" data-id="cixn842xj0000rqu5bopxitsq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/07/Send-FB-message-by-Python/" data-id="cixn8cy0300000ru5f4lbkmwy" class="article-share-link">Share</a>
       
         <a href="http://yoursite.com/2017/01/07/Send-FB-message-by-Python/#disqus_thread" class="article-comment-link">Comments</a>
       
