@@ -21,7 +21,7 @@ Hexo document
 
 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
 More info: Writing">
-<meta property="og:updated_time" content="2017-01-07T03:22:05.000Z">
+<meta property="og:updated_time" content="2017-01-07T08:16:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Git = Blog">
 <meta name="twitter:description" content="Reference
@@ -129,7 +129,15 @@ ga('send', 'pageview');
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h3 id="Add-ReadMore-on-man-page"><a href="#Add-ReadMore-on-man-page" class="headerlink" title="Add ReadMore on man page"></a>Add ReadMore on man page</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Add-ReadMore-on-man-page"><a href="#Add-ReadMore-on-man-page" class="headerlink" title="Add ReadMore on man page"></a>Add ReadMore on man page</h3><p>Add in scaffolds/page.md</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Language"><a href="#Language" class="headerlink" title="Language"></a>Language</h3><p>修改_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">language:</div><div class="line">- zh-tw</div><div class="line">- en</div></pre></td></tr></table></figure>
+<h3 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h3><p>執行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
+<p>You can configure this plugin in _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div><div class="line">  hub:</div><div class="line">  content:</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.htm://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">RSS</a></p>
 
       
     </div>
