@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-07T08:18:01.000Z</updated>
+  <updated>2017-01-07T12:45:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Send FB message by Python</title>
+    <link href="http://yoursite.com/2017/01/07/Send-FB-message-by-Python/"/>
+    <id>http://yoursite.com/2017/01/07/Send-FB-message-by-Python/</id>
+    <published>2017-01-07T12:41:18.000Z</published>
+    <updated>2017-01-07T12:45:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot; title=&quot;Installation&quot;&gt;&lt;/a&gt;Installation&lt;/h1&gt;&lt;p&gt;Simple:&lt;/p&gt;
+&lt;figure class=&quot;hig
+    
+    </summary>
+    
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo + Git = Blog</title>
     <link href="http://yoursite.com/2017/01/07/Hexo-Git-Blog/"/>
     <id>http://yoursite.com/2017/01/07/Hexo-Git-Blog/</id>
     <published>2017-01-07T03:04:02.000Z</published>
-    <updated>2017-01-07T08:18:01.000Z</updated>
+    <updated>2017-01-07T12:41:54.000Z</updated>
     
     <summary type="html">
     
@@ -33,7 +54,7 @@
     
     </summary>
     
-      <category term="programing" scheme="http://yoursite.com/categories/programing/"/>
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
     
     
       <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
