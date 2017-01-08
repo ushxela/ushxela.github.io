@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-07T12:55:40.000Z</updated>
+  <updated>2017-01-08T08:05:20.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>defaultdict</title>
+    <link href="http://yoursite.com/2017/01/08/defaultdict/"/>
+    <id>http://yoursite.com/2017/01/08/defaultdict/</id>
+    <published>2017-01-08T07:59:53.000Z</published>
+    <updated>2017-01-08T08:05:20.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;example:&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; collections &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; defaultdict&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = [(&lt;span class=&quot;string&quot;&gt;&#39;yellow&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;yellow&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;d = defaultdict(list)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; k, v &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; s:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    d[k].append(v)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;d.items()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[(&amp;apos;blue&amp;apos;, [2, 4]), (&amp;apos;red&amp;apos;, [1]), (&amp;apos;yellow&amp;apos;, [1, 3])]
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Send FB message by Python</title>
