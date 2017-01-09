@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Numpy and Pandas 1D | CB&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Numpy 基本基法numpy 陣列
+123456789output:import numpy as npcountries = np.array([    &amp;apos;Afghanistan&amp;apos;, &amp;apos;Albania&amp;apos;, &amp;apos;Algeria&amp;apos;, &amp;apos;Angola&amp;apos;, &amp;apos;Argentina&amp;apos;,    &amp;apos;Ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy and Pandas 1D">
+<meta property="og:url" content="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/index.html">
+<meta property="og:site_name" content="CB's Blog">
+<meta property="og:description" content="Numpy 基本基法numpy 陣列
+123456789output:import numpy as npcountries = np.array([    &amp;apos;Afghanistan&amp;apos;, &amp;apos;Albania&amp;apos;, &amp;apos;Algeria&amp;apos;, &amp;apos;Angola&amp;apos;, &amp;apos;Argentina&amp;apos;,    &amp;apos;Ar">
+<meta property="og:image" content="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/lesson2_49_0.png">
+<meta property="og:updated_time" content="2017-01-09T14:56:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Numpy and Pandas 1D">
+<meta name="twitter:description" content="Numpy 基本基法numpy 陣列
+123456789output:import numpy as npcountries = np.array([    &amp;apos;Afghanistan&amp;apos;, &amp;apos;Albania&amp;apos;, &amp;apos;Algeria&amp;apos;, &amp;apos;Angola&amp;apos;, &amp;apos;Argentina&amp;apos;,    &amp;apos;Ar">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/lesson2_49_0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CB&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89921841-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CB&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Numpy-and-Pandas-1D" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/09/Numpy-and-Pandas-1D/" class="article-date">
+  <time datetime="2017-01-09T14:52:53.000Z" itemprop="datePublished">2017-01-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Numpy and Pandas 1D
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Numpy-基本基法"><a href="#Numpy-基本基法" class="headerlink" title="Numpy 基本基法"></a>Numpy 基本基法</h2><p>numpy 陣列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">import numpy as np</div><div class="line">countries = np.array([</div><div class="line">    &apos;Afghanistan&apos;, &apos;Albania&apos;, &apos;Algeria&apos;, &apos;Angola&apos;, &apos;Argentina&apos;,</div><div class="line">    &apos;Armenia&apos;, &apos;Australia&apos;, &apos;Austria&apos;, &apos;Azerbaijan&apos;, &apos;Bahamas&apos;,</div><div class="line">    &apos;Bahrain&apos;, &apos;Bangladesh&apos;, &apos;Barbados&apos;, &apos;Belarus&apos;, &apos;Belgium&apos;,</div><div class="line">    &apos;Belize&apos;, &apos;Benin&apos;, &apos;Bhutan&apos;, &apos;Bolivia&apos;,</div><div class="line">    &apos;Bosnia and Herzegovina&apos;</div><div class="line">])</div></pre></td></tr></table></figure>
+<p>output:</p>
+<p>抓資料<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    print countries[0]</div><div class="line">    print countries[3]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>Afghanistan
+Angola
+</code></pre><p>切片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    print countries[0:3]</div><div class="line">    print countries[:3]</div><div class="line">    print countries[17:]</div><div class="line">    print countries[:]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[&apos;Afghanistan&apos; &apos;Albania&apos; &apos;Algeria&apos;]
+[&apos;Afghanistan&apos; &apos;Albania&apos; &apos;Algeria&apos;]
+[&apos;Bhutan&apos; &apos;Bolivia&apos; &apos;Bosnia and Herzegovina&apos;]
+[&apos;Afghanistan&apos; &apos;Albania&apos; &apos;Algeria&apos; &apos;Angola&apos; &apos;Argentina&apos; &apos;Armenia&apos;
+ &apos;Australia&apos; &apos;Austria&apos; &apos;Azerbaijan&apos; &apos;Bahamas&apos; &apos;Bahrain&apos; &apos;Bangladesh&apos;
+ &apos;Barbados&apos; &apos;Belarus&apos; &apos;Belgium&apos; &apos;Belize&apos; &apos;Benin&apos; &apos;Bhutan&apos; &apos;Bolivia&apos;
+ &apos;Bosnia and Herzegovina&apos;]
+</code></pre><p>資料型態</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    print countries.dtype</div><div class="line">    print np.array([0, 1, 2, 3]).dtype</div><div class="line">    print np.array([1.0, 1.5, 2.0, 2.5]).dtype</div><div class="line">    print np.array([True, False, True]).dtype</div><div class="line">    print np.array([&apos;AL&apos;, &apos;AK&apos;, &apos;AZ&apos;, &apos;AR&apos;, &apos;CA&apos;]).dtype</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>|S22
+int64
+float64
+bool
+|S2
+</code></pre><p>迴圈抓資料</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    for country in countries:</div><div class="line">        print &apos;Examining country &#123;&#125;&apos;.format(country)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>Examining country Afghanistan
+Examining country Albania
+Examining country Algeria
+Examining country Angola
+Examining country Argentina
+Examining country Armenia
+Examining country Australia
+Examining country Austria
+Examining country Azerbaijan
+Examining country Bahamas
+Examining country Bahrain
+Examining country Bangladesh
+Examining country Barbados
+Examining country Belarus
+Examining country Belgium
+Examining country Belize
+Examining country Benin
+Examining country Bhutan
+Examining country Bolivia
+Examining country Bosnia and Herzegovina
+</code></pre><h2 id="Numpy-計算"><a href="#Numpy-計算" class="headerlink" title="Numpy 計算"></a>Numpy 計算</h2><p>計算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 4])</div><div class="line">    b = np.array([1, 2, 1, 2])</div><div class="line">    </div><div class="line">    print a + b</div><div class="line">    print a - b</div><div class="line">    print a * b</div><div class="line">    print a / b</div><div class="line">    print a ** b</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[2 4 4 6]
+[0 0 2 2]
+[1 4 3 8]
+[1 1 3 2]
+[ 1  4  3 16]
+</code></pre><p>向量和常數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 4])</div><div class="line">    b = 2</div><div class="line">    </div><div class="line">    print a + b</div><div class="line">    print a - b</div><div class="line">    print a * b</div><div class="line">    print a / b</div><div class="line">    print a ** b</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[3 4 5 6]
+[-1  0  1  2]
+[2 4 6 8]
+[0 1 1 2]
+[ 1  4  9 16]
+</code></pre><p>邏輯運算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([True, True, False, False])</div><div class="line">    b = np.array([True, False, True, False])</div><div class="line">    </div><div class="line">    print a &amp; b</div><div class="line">    print a | b</div><div class="line">    print ~a</div><div class="line">    </div><div class="line">    print a &amp; True</div><div class="line">    print a &amp; False</div><div class="line">    </div><div class="line">    print a | True</div><div class="line">    print a | False</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[ True False False False]
+[ True  True  True False]
+[False False  True  True]
+[ True  True False False]
+[False False False False]
+[ True  True  True  True]
+[ True  True False False]
+</code></pre><p>比較運算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 4, 5])</div><div class="line">    b = np.array([5, 4, 3, 2, 1])</div><div class="line">    </div><div class="line">    print a &gt; b</div><div class="line">    print a &gt;= b</div><div class="line">    print a &lt; b</div><div class="line">    print a &lt;= b</div><div class="line">    print a == b</div><div class="line">    print a != b</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[False False False  True  True]
+[False False  True  True  True]
+[ True  True False False False]
+[ True  True  True False False]
+[False False  True False False]
+[ True  True False  True  True]
+</code></pre><p>向量和常數比較運算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 4])</div><div class="line">    b = 2</div><div class="line">    </div><div class="line">    print a &gt; b</div><div class="line">    print a &gt;= b</div><div class="line">    print a &lt; b</div><div class="line">    print a &lt;= b</div><div class="line">    print a == b</div><div class="line">    print a != b</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[False False  True  True]
+[False  True  True  True]
+[ True False False False]
+[ True  True False False]
+[False  True False False]
+[ True False  True  True]
+</code></pre><h2 id="常態化"><a href="#常態化" class="headerlink" title="常態化"></a>常態化</h2><p>範例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">import numpy as np</div><div class="line"></div><div class="line"># First 20 countries with employment data</div><div class="line">countries = np.array([</div><div class="line">    &apos;Afghanistan&apos;, &apos;Albania&apos;, &apos;Algeria&apos;, &apos;Angola&apos;, &apos;Argentina&apos;,</div><div class="line">    &apos;Armenia&apos;, &apos;Australia&apos;, &apos;Austria&apos;, &apos;Azerbaijan&apos;, &apos;Bahamas&apos;,</div><div class="line">    &apos;Bahrain&apos;, &apos;Bangladesh&apos;, &apos;Barbados&apos;, &apos;Belarus&apos;, &apos;Belgium&apos;,</div><div class="line">    &apos;Belize&apos;, &apos;Benin&apos;, &apos;Bhutan&apos;, &apos;Bolivia&apos;,</div><div class="line">    &apos;Bosnia and Herzegovina&apos;</div><div class="line">])</div><div class="line"></div><div class="line"># Employment data in 2007 for those 20 countries</div><div class="line">employment = np.array([</div><div class="line">    55.70000076,  51.40000153,  50.5       ,  75.69999695,</div><div class="line">    58.40000153,  40.09999847,  61.5       ,  57.09999847,</div><div class="line">    60.90000153,  66.59999847,  60.40000153,  68.09999847,</div><div class="line">    66.90000153,  53.40000153,  48.59999847,  56.79999924,</div><div class="line">    71.59999847,  58.40000153,  70.40000153,  41.20000076</div><div class="line">])</div><div class="line">normalized_employment = (employment - employment.mean()) / employment.std()</div><div class="line">print normalized_employment</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[-0.31965231 -0.780123   -0.87650077  1.82207181 -0.03051941 -1.99019768
+  0.30144772 -0.16973184  0.23719615  0.84758731  0.18365304  1.00821665
+  0.87971351 -0.56595055 -1.07996476 -0.20185762  1.38301845 -0.03051941
+  1.2545153  -1.87240259]
+</code></pre><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>使用索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 4])</div><div class="line">    b = np.array([True, True, False, False])</div><div class="line">    </div><div class="line">    print a[b]</div><div class="line">    print a[np.array([True, False, True, False])]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[1 2]
+[1 3]
+</code></pre><p>比較運算當索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = np.array([1, 2, 3, 2, 1])</div><div class="line">    b = (a &gt;= 2)</div><div class="line">    </div><div class="line">    print a[b]</div><div class="line">    print a[a &gt;= 2]</div><div class="line">    </div><div class="line">    a = np.array([1, 2, 3, 4, 5])</div><div class="line">    b = np.array([1, 2, 3, 2, 1])</div><div class="line">    </div><div class="line">    print b == 2</div><div class="line">    print a[b == 2]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[2 3 2]
+[2 3 2]
+[False  True False  True False]
+[2 4]
+</code></pre><h2 id="Pandas-Series"><a href="#Pandas-Series" class="headerlink" title="Pandas Series"></a>Pandas Series</h2><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">import pandas as pd</div><div class="line"></div><div class="line">countries = [&apos;Albania&apos;, &apos;Algeria&apos;, &apos;Andorra&apos;, &apos;Angola&apos;, &apos;Antigua and Barbuda&apos;,</div><div class="line">             &apos;Argentina&apos;, &apos;Armenia&apos;, &apos;Australia&apos;, &apos;Austria&apos;, &apos;Azerbaijan&apos;,</div><div class="line">             &apos;Bahamas&apos;, &apos;Bahrain&apos;, &apos;Bangladesh&apos;, &apos;Barbados&apos;, &apos;Belarus&apos;,</div><div class="line">             &apos;Belgium&apos;, &apos;Belize&apos;, &apos;Benin&apos;, &apos;Bhutan&apos;, &apos;Bolivia&apos;]</div><div class="line"></div><div class="line">life_expectancy_values = [74.7,  75. ,  83.4,  57.6,  74.6,  75.4,  72.3,  81.5,  80.2,</div><div class="line">                          70.3,  72.1,  76.4,  68.1,  75.2,  69.8,  79.4,  70.8,  62.7,</div><div class="line">                          67.3,  70.6]</div><div class="line"></div><div class="line">gdp_values = [ 1681.61390973,   2155.48523109,  21495.80508273,    562.98768478,</div><div class="line">              13495.1274663 ,   9388.68852258,   1424.19056199,  24765.54890176,</div><div class="line">              27036.48733192,   1945.63754911,  21721.61840978,  13373.21993972,</div><div class="line">                483.97086804,   9783.98417323,   2253.46411147,  25034.66692293,</div><div class="line">               3680.91642923,    366.04496652,   1175.92638695,   1132.21387981]</div><div class="line"></div><div class="line"># Life expectancy and gdp data in 2007 for 20 countries</div><div class="line">life_expectancy = pd.Series(life_expectancy_values)</div><div class="line">gdp = pd.Series(gdp_values)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<p>獲取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    print life_expectancy[0]</div><div class="line">    print gdp[3:6]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>74.7
+3      562.987685
+4    13495.127466
+5     9388.688523
+dtype: float64
+</code></pre><p>迴圈探索</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    for country_life_expectancy in life_expectancy:</div><div class="line">        print &apos;Examining life expectancy &#123;&#125;&apos;.format(country_life_expectancy)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>Examining life expectancy 74.7
+Examining life expectancy 75.0
+Examining life expectancy 83.4
+Examining life expectancy 57.6
+Examining life expectancy 74.6
+Examining life expectancy 75.4
+Examining life expectancy 72.3
+Examining life expectancy 81.5
+Examining life expectancy 80.2
+Examining life expectancy 70.3
+Examining life expectancy 72.1
+Examining life expectancy 76.4
+Examining life expectancy 68.1
+Examining life expectancy 75.2
+Examining life expectancy 69.8
+Examining life expectancy 79.4
+Examining life expectancy 70.8
+Examining life expectancy 62.7
+Examining life expectancy 67.3
+Examining life expectancy 70.6
+</code></pre><p>函數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    print life_expectancy.mean()</div><div class="line">    print life_expectancy.std()</div><div class="line">    print gdp.max()</div><div class="line">    print gdp.sum()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>72.87
+6.21399947487
+27036.4873319
+182957.59833
+</code></pre><p>運算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    a = pd.Series([1, 2, 3, 4])</div><div class="line">    b = pd.Series([1, 2, 1, 2])</div><div class="line">  </div><div class="line">    print a + b</div><div class="line">    print a * 2</div><div class="line">    print a &gt;= 3</div><div class="line">    print a[a &gt;= 3]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>0    2
+1    4
+2    4
+3    6
+dtype: int64
+0    2
+1    4
+2    6
+3    8
+dtype: int64
+0    False
+1    False
+2     True
+3     True
+dtype: bool
+2    3
+3    4
+dtype: int64
+</code></pre><h2 id="Panda-索引"><a href="#Panda-索引" class="headerlink" title="Panda 索引"></a>Panda 索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">import pandas as pd</div><div class="line"></div><div class="line">countries = [</div><div class="line">    &apos;Afghanistan&apos;, &apos;Albania&apos;, &apos;Algeria&apos;, &apos;Angola&apos;, &apos;Argentina&apos;,</div><div class="line">    &apos;Armenia&apos;, &apos;Australia&apos;, &apos;Austria&apos;, &apos;Azerbaijan&apos;, &apos;Bahamas&apos;,</div><div class="line">    &apos;Bahrain&apos;, &apos;Bangladesh&apos;, &apos;Barbados&apos;, &apos;Belarus&apos;, &apos;Belgium&apos;,</div><div class="line">    &apos;Belize&apos;, &apos;Benin&apos;, &apos;Bhutan&apos;, &apos;Bolivia&apos;,</div><div class="line">    &apos;Bosnia and Herzegovina&apos;</div><div class="line">]</div><div class="line"></div><div class="line"></div><div class="line">employment_values = [</div><div class="line">    55.70000076,  51.40000153,  50.5       ,  75.69999695,</div><div class="line">    58.40000153,  40.09999847,  61.5       ,  57.09999847,</div><div class="line">    60.90000153,  66.59999847,  60.40000153,  68.09999847,</div><div class="line">    66.90000153,  53.40000153,  48.59999847,  56.79999924,</div><div class="line">    71.59999847,  58.40000153,  70.40000153,  41.20000076</div><div class="line">]</div><div class="line"></div><div class="line"># Employment data in 2007 for 20 countries</div><div class="line">employment = pd.Series(employment_values, index=countries)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">print employment.argmax()</div><div class="line">print employment.max()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>Angola
+75.69999695
+</code></pre><h2 id="Panda-向量運算"><a href="#Panda-向量運算" class="headerlink" title="Panda 向量運算"></a>Panda 向量運算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    s1 = pd.Series([1, 2, 3, 4], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">    s2 = pd.Series([10, 20, 30, 40], index=[&apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;])</div><div class="line">    print s1 + s2</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>a     NaN
+b     NaN
+c    13.0
+d    24.0
+e     NaN
+f     NaN
+dtype: float64
+</code></pre><p>apply函數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">    s = pd.Series([1, 2, 3, 4, 5])</div><div class="line">    def add_one(x):</div><div class="line">        return x + 1</div><div class="line">    print s.apply(add_one)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>0    2
+1    3
+2    4
+3    5
+4    6
+dtype: int64
+</code></pre><h2 id="繪圖"><a href="#繪圖" class="headerlink" title="繪圖"></a>繪圖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">output:</div><div class="line">import pandas as pd</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">s = pd.Series([1, 2, 3, 4, 5])</div><div class="line">s.hist()</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<img src="/2017/01/09/Numpy-and-Pandas-1D/lesson2_49_0.png" alt="image" title="image">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/" data-id="cixq7lfbu000046u572fxqe8u" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/08/defaultdict/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python Module: defaultdict</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/09/Numpy-and-Pandas-1D/">Numpy and Pandas 1D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/defaultdict/">Python Module: defaultdict</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/07/Send-FB-message-by-Python/">Send FB message by Python</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/07/Hexo-Git-Blog/">Hexo + Git = Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CB Hsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'cbhsu';
+  
+  var disqus_url = 'http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
