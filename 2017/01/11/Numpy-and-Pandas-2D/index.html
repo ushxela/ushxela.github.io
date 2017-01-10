@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Numpy and Pandas 2D | CB&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Downloadlesson3.ipynb
+ReferenceCourse on Udacity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy and Pandas 2D">
+<meta property="og:url" content="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/index.html">
+<meta property="og:site_name" content="CB's Blog">
+<meta property="og:description" content="Downloadlesson3.ipynb
+ReferenceCourse on Udacity">
+<meta property="og:image" content="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/lesson3_87_0.png">
+<meta property="og:updated_time" content="2017-01-10T17:49:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Numpy and Pandas 2D">
+<meta name="twitter:description" content="Downloadlesson3.ipynb
+ReferenceCourse on Udacity">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/lesson3_87_0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="CB&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89921841-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CB&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Numpy-and-Pandas-2D" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/11/Numpy-and-Pandas-2D/" class="article-date">
+  <time datetime="2017-01-10T17:38:23.000Z" itemprop="datePublished">2017-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Numpy and Pandas 2D
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><a href="/2017/01/11/Numpy-and-Pandas-2D/lesson3.ipynb" title="lesson3.ipynb">lesson3.ipynb</a>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.udacity.com/" target="_blank" rel="external">Course on Udacity</a></p>
+<a id="more"></a>
+<h2 id="Numpy-2D"><a href="#Numpy-2D" class="headerlink" title="Numpy 2D"></a>Numpy 2D</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment"># Subway ridership for 5 stations on 10 different days</span></div><div class="line">ridership = np.array([</div><div class="line">    [   <span class="number">0</span>,    <span class="number">0</span>,    <span class="number">2</span>,    <span class="number">5</span>,    <span class="number">0</span>],</div><div class="line">    [<span class="number">1478</span>, <span class="number">3877</span>, <span class="number">3674</span>, <span class="number">2328</span>, <span class="number">2539</span>],</div><div class="line">    [<span class="number">1613</span>, <span class="number">4088</span>, <span class="number">3991</span>, <span class="number">6461</span>, <span class="number">2691</span>],</div><div class="line">    [<span class="number">1560</span>, <span class="number">3392</span>, <span class="number">3826</span>, <span class="number">4787</span>, <span class="number">2613</span>],</div><div class="line">    [<span class="number">1608</span>, <span class="number">4802</span>, <span class="number">3932</span>, <span class="number">4477</span>, <span class="number">2705</span>],</div><div class="line">    [<span class="number">1576</span>, <span class="number">3933</span>, <span class="number">3909</span>, <span class="number">4979</span>, <span class="number">2685</span>],</div><div class="line">    [  <span class="number">95</span>,  <span class="number">229</span>,  <span class="number">255</span>,  <span class="number">496</span>,  <span class="number">201</span>],</div><div class="line">    [   <span class="number">2</span>,    <span class="number">0</span>,    <span class="number">1</span>,   <span class="number">27</span>,    <span class="number">0</span>],</div><div class="line">    [<span class="number">1438</span>, <span class="number">3785</span>, <span class="number">3589</span>, <span class="number">4174</span>, <span class="number">2215</span>],</div><div class="line">    [<span class="number">1342</span>, <span class="number">4043</span>, <span class="number">4009</span>, <span class="number">4665</span>, <span class="number">3033</span>]</div><div class="line">])</div><div class="line">ridership</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>array([[   0,    0,    2,    5,    0],
+       [1478, 3877, 3674, 2328, 2539],
+       [1613, 4088, 3991, 6461, 2691],
+       [1560, 3392, 3826, 4787, 2613],
+       [1608, 4802, 3932, 4477, 2705],
+       [1576, 3933, 3909, 4979, 2685],
+       [  95,  229,  255,  496,  201],
+       [   2,    0,    1,   27,    0],
+       [1438, 3785, 3589, 4174, 2215],
+       [1342, 4043, 4009, 4665, 3033]])
+</code></pre><p>取值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> ridership[<span class="number">1</span>, <span class="number">3</span>]</div><div class="line"><span class="keyword">print</span> ridership[<span class="number">1</span>:<span class="number">3</span>, <span class="number">3</span>:<span class="number">5</span>]</div><div class="line"><span class="keyword">print</span> ridership[<span class="number">1</span>, :]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>2328
+[[2328 2539]
+ [6461 2691]]
+[1478 3877 3674 2328 2539]
+</code></pre><p>向量運算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> ridership[<span class="number">0</span>, :] + ridership[<span class="number">1</span>, :]</div><div class="line"><span class="keyword">print</span> ridership[:, <span class="number">0</span>] + ridership[:, <span class="number">1</span>]</div><div class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</div><div class="line">b = np.array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]])</div><div class="line"><span class="keyword">print</span> a + b</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>[1478 3877 3676 2333 2539]
+[   0 5355 5701 4952 6410 5509  324    2 5223 5385]
+[[ 2  3  4]
+ [ 6  7  8]
+ [10 11 12]]
+</code></pre><p>軸運算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">a = np.array([</div><div class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">    [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</div><div class="line">    [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</div><div class="line">])</div><div class="line"></div><div class="line"><span class="keyword">print</span> a.sum()</div><div class="line"><span class="keyword">print</span> a.sum(axis=<span class="number">0</span>)</div><div class="line"><span class="keyword">print</span> a.sum(axis=<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>45
+[12 15 18]
+[ 6 15 24]
+</code></pre><p>軸運算2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">ridership = np.array([</div><div class="line">    [   <span class="number">0</span>,    <span class="number">0</span>,    <span class="number">2</span>,    <span class="number">5</span>,    <span class="number">0</span>],</div><div class="line">    [<span class="number">1478</span>, <span class="number">3877</span>, <span class="number">3674</span>, <span class="number">2328</span>, <span class="number">2539</span>],</div><div class="line">    [<span class="number">1613</span>, <span class="number">4088</span>, <span class="number">3991</span>, <span class="number">6461</span>, <span class="number">2691</span>],</div><div class="line">    [<span class="number">1560</span>, <span class="number">3392</span>, <span class="number">3826</span>, <span class="number">4787</span>, <span class="number">2613</span>],</div><div class="line">    [<span class="number">1608</span>, <span class="number">4802</span>, <span class="number">3932</span>, <span class="number">4477</span>, <span class="number">2705</span>],</div><div class="line">    [<span class="number">1576</span>, <span class="number">3933</span>, <span class="number">3909</span>, <span class="number">4979</span>, <span class="number">2685</span>],</div><div class="line">    [  <span class="number">95</span>,  <span class="number">229</span>,  <span class="number">255</span>,  <span class="number">496</span>,  <span class="number">201</span>],</div><div class="line">    [   <span class="number">2</span>,    <span class="number">0</span>,    <span class="number">1</span>,   <span class="number">27</span>,    <span class="number">0</span>],</div><div class="line">    [<span class="number">1438</span>, <span class="number">3785</span>, <span class="number">3589</span>, <span class="number">4174</span>, <span class="number">2215</span>],</div><div class="line">    [<span class="number">1342</span>, <span class="number">4043</span>, <span class="number">4009</span>, <span class="number">4665</span>, <span class="number">3033</span>]</div><div class="line">])</div><div class="line"><span class="keyword">print</span> ridership.mean(axis=<span class="number">0</span>).max()</div><div class="line"><span class="keyword">print</span> ridership.mean(axis=<span class="number">0</span>).min()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>3239.9
+1071.2
+</code></pre><h2 id="Pandas-2d-Dataframe"><a href="#Pandas-2d-Dataframe" class="headerlink" title="Pandas 2d - Dataframe"></a>Pandas 2d - Dataframe</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="comment"># Subway ridership for 5 stations on 10 different days</span></div><div class="line">ridership_df = pd.DataFrame(</div><div class="line">    data=[[   <span class="number">0</span>,    <span class="number">0</span>,    <span class="number">2</span>,    <span class="number">5</span>,    <span class="number">0</span>],</div><div class="line">          [<span class="number">1478</span>, <span class="number">3877</span>, <span class="number">3674</span>, <span class="number">2328</span>, <span class="number">2539</span>],</div><div class="line">          [<span class="number">1613</span>, <span class="number">4088</span>, <span class="number">3991</span>, <span class="number">6461</span>, <span class="number">2691</span>],</div><div class="line">          [<span class="number">1560</span>, <span class="number">3392</span>, <span class="number">3826</span>, <span class="number">4787</span>, <span class="number">2613</span>],</div><div class="line">          [<span class="number">1608</span>, <span class="number">4802</span>, <span class="number">3932</span>, <span class="number">4477</span>, <span class="number">2705</span>],</div><div class="line">          [<span class="number">1576</span>, <span class="number">3933</span>, <span class="number">3909</span>, <span class="number">4979</span>, <span class="number">2685</span>],</div><div class="line">          [  <span class="number">95</span>,  <span class="number">229</span>,  <span class="number">255</span>,  <span class="number">496</span>,  <span class="number">201</span>],</div><div class="line">          [   <span class="number">2</span>,    <span class="number">0</span>,    <span class="number">1</span>,   <span class="number">27</span>,    <span class="number">0</span>],</div><div class="line">          [<span class="number">1438</span>, <span class="number">3785</span>, <span class="number">3589</span>, <span class="number">4174</span>, <span class="number">2215</span>],</div><div class="line">          [<span class="number">1342</span>, <span class="number">4043</span>, <span class="number">4009</span>, <span class="number">4665</span>, <span class="number">3033</span>]],</div><div class="line">    index=[<span class="string">'05-01-11'</span>, <span class="string">'05-02-11'</span>, <span class="string">'05-03-11'</span>, <span class="string">'05-04-11'</span>, <span class="string">'05-05-11'</span>,</div><div class="line">           <span class="string">'05-06-11'</span>, <span class="string">'05-07-11'</span>, <span class="string">'05-08-11'</span>, <span class="string">'05-09-11'</span>, <span class="string">'05-10-11'</span>],</div><div class="line">    columns=[<span class="string">'R003'</span>, <span class="string">'R004'</span>, <span class="string">'R005'</span>, <span class="string">'R006'</span>, <span class="string">'R007'</span>]</div><div class="line">)</div><div class="line"><span class="keyword">print</span> ridership_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>          R003  R004  R005  R006  R007
+05-01-11     0     0     2     5     0
+05-02-11  1478  3877  3674  2328  2539
+05-03-11  1613  4088  3991  6461  2691
+05-04-11  1560  3392  3826  4787  2613
+05-05-11  1608  4802  3932  4477  2705
+05-06-11  1576  3933  3909  4979  2685
+05-07-11    95   229   255   496   201
+05-08-11     2     0     1    27     0
+05-09-11  1438  3785  3589  4174  2215
+05-10-11  1342  4043  4009  4665  3033
+</code></pre><p>dataframe</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">df_1 = pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="string">'B'</span>: [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]&#125;)</div><div class="line"><span class="keyword">print</span> df_1</div><div class="line"></div><div class="line"><span class="comment"># You can also use a list of lists or a 2D NumPy array</span></div><div class="line">df_2 = pd.DataFrame([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]], columns=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>])</div><div class="line"><span class="keyword">print</span> df_2</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   A  B
+0  0  3
+1  1  4
+2  2  5
+   A  B  C
+0  0  1  2
+1  3  4  5
+</code></pre><p>取值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> ridership_df.iloc[<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> ridership_df.loc[<span class="string">'05-05-11'</span>]</div><div class="line"><span class="keyword">print</span> ridership_df[<span class="string">'R003'</span>]</div><div class="line"><span class="keyword">print</span> ridership_df.iloc[<span class="number">1</span>, <span class="number">3</span>]</div><div class="line"><span class="keyword">print</span> ridership_df.iloc[<span class="number">1</span>:<span class="number">4</span>]</div><div class="line"><span class="keyword">print</span> ridership_df[[<span class="string">'R003'</span>, <span class="string">'R005'</span>]]</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>R003    0
+R004    0
+R005    2
+R006    5
+R007    0
+Name: 05-01-11, dtype: int64
+R003    1608
+R004    4802
+R005    3932
+R006    4477
+R007    2705
+Name: 05-05-11, dtype: int64
+05-01-11       0
+05-02-11    1478
+05-03-11    1613
+05-04-11    1560
+05-05-11    1608
+05-06-11    1576
+05-07-11      95
+05-08-11       2
+05-09-11    1438
+05-10-11    1342
+Name: R003, dtype: int64
+2328
+          R003  R004  R005  R006  R007
+05-02-11  1478  3877  3674  2328  2539
+05-03-11  1613  4088  3991  6461  2691
+05-04-11  1560  3392  3826  4787  2613
+          R003  R005
+05-01-11     0     2
+05-02-11  1478  3674
+05-03-11  1613  3991
+05-04-11  1560  3826
+05-05-11  1608  3932
+05-06-11  1576  3909
+05-07-11    95   255
+05-08-11     2     1
+05-09-11  1438  3589
+05-10-11  1342  4009
+</code></pre><p>Panda軸</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">df = pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="string">'B'</span>: [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]&#125;)</div><div class="line"><span class="keyword">print</span> df.sum()</div><div class="line"><span class="keyword">print</span> df.sum(axis=<span class="number">1</span>)</div><div class="line"><span class="keyword">print</span> df.values.sum()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>A     3
+B    12
+dtype: int64
+0    3
+1    5
+2    7
+dtype: int64
+15
+</code></pre><p>讀檔</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">subway_df = pd.read_csv(<span class="string">"nyc_subway_weather.csv"</span>)</div><div class="line"><span class="keyword">print</span> subway_df.head()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   UNIT     DATEn     TIMEn  ENTRIESn   EXITSn  ENTRIESn_hourly  \
+0  R003  05-01-11  00:00:00   4388333  2911002              0.0   
+1  R003  05-01-11  04:00:00   4388333  2911002              0.0   
+2  R003  05-01-11  12:00:00   4388333  2911002              0.0   
+3  R003  05-01-11  16:00:00   4388333  2911002              0.0   
+4  R003  05-01-11  20:00:00   4388333  2911002              0.0   
+
+   EXITSn_hourly             datetime  hour  day_week     ...       pressurei  \
+0            0.0  2011-05-01 00:00:00     0         6     ...           30.22   
+1            0.0  2011-05-01 04:00:00     4         6     ...           30.25   
+2            0.0  2011-05-01 12:00:00    12         6     ...           30.28   
+3            0.0  2011-05-01 16:00:00    16         6     ...           30.26   
+4            0.0  2011-05-01 20:00:00    20         6     ...           30.28   
+
+  rain  tempi  wspdi meanprecipi  meanpressurei  meantempi  meanwspdi  \
+0    0   55.9    3.5         0.0         30.258      55.98       7.86   
+1    0   52.0    3.5         0.0         30.258      55.98       7.86   
+2    0   62.1    6.9         0.0         30.258      55.98       7.86   
+3    0   57.9   15.0         0.0         30.258      55.98       7.86   
+4    0   52.0   10.4         0.0         30.258      55.98       7.86   
+
+   weather_lat  weather_lon  
+0    40.700348   -73.887177  
+1    40.700348   -73.887177  
+2    40.700348   -73.887177  
+3    40.700348   -73.887177  
+4    40.700348   -73.887177  
+
+[5 rows x 27 columns]
+</code></pre><p>describe</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> subway_df.describe()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>           ENTRIESn        EXITSn  ENTRIESn_hourly  EXITSn_hourly  \
+count  4.264900e+04  4.264900e+04     42649.000000   42649.000000   
+mean   2.812486e+07  1.986993e+07      1886.589955    1361.487866   
+std    3.043607e+07  2.028986e+07      2952.385585    2183.845409   
+min    0.000000e+00  0.000000e+00         0.000000       0.000000   
+25%    1.039762e+07  7.613712e+06       274.000000     237.000000   
+50%    1.818389e+07  1.331609e+07       905.000000     664.000000   
+75%    3.263049e+07  2.393771e+07      2255.000000    1537.000000   
+max    2.357746e+08  1.493782e+08     32814.000000   34828.000000   
+
+               hour      day_week       weekday      latitude     longitude  \
+count  42649.000000  42649.000000  42649.000000  42649.000000  42649.000000   
+mean      10.046754      2.905719      0.714436     40.724647    -73.940364   
+std        6.938928      2.079231      0.451688      0.071650      0.059713   
+min        0.000000      0.000000      0.000000     40.576152    -74.073622   
+25%        4.000000      1.000000      0.000000     40.677107    -73.987342   
+50%       12.000000      3.000000      1.000000     40.717241    -73.953459   
+75%       16.000000      5.000000      1.000000     40.759123    -73.907733   
+max       20.000000      6.000000      1.000000     40.889185    -73.755383   
+
+                fog      ...          pressurei          rain         tempi  \
+count  42649.000000      ...       42649.000000  42649.000000  42649.000000   
+mean       0.009824      ...          29.971096      0.224741     63.103780   
+std        0.098631      ...           0.137942      0.417417      8.455597   
+min        0.000000      ...          29.550000      0.000000     46.900000   
+25%        0.000000      ...          29.890000      0.000000     57.000000   
+50%        0.000000      ...          29.960000      0.000000     61.000000   
+75%        0.000000      ...          30.060000      0.000000     69.100000   
+max        1.000000      ...          30.320000      1.000000     86.000000   
+
+              wspdi   meanprecipi  meanpressurei     meantempi     meanwspdi  \
+count  42649.000000  42649.000000   42649.000000  42649.000000  42649.000000   
+mean       6.927872      0.004618      29.971096     63.103780      6.927872   
+std        4.510178      0.016344       0.131158      6.939011      3.179832   
+min        0.000000      0.000000      29.590000     49.400000      0.000000   
+25%        4.600000      0.000000      29.913333     58.283333      4.816667   
+50%        6.900000      0.000000      29.958000     60.950000      6.166667   
+75%        9.200000      0.000000      30.060000     67.466667      8.850000   
+max       23.000000      0.157500      30.293333     79.800000     17.083333   
+
+        weather_lat   weather_lon  
+count  42649.000000  42649.000000  
+mean      40.728555    -73.938693  
+std        0.065420      0.059582  
+min       40.600204    -74.014870  
+25%       40.688591    -73.985130  
+50%       40.720570    -73.949150  
+75%       40.755226    -73.912033  
+max       40.862064    -73.694176  
+
+[8 rows x 21 columns]
+</code></pre><h2 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation"></a>Correlation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">subway_df = pd.read_csv(<span class="string">"nyc_subway_weather.csv"</span>)</div><div class="line"></div><div class="line">entries = subway_df[<span class="string">'ENTRIESn_hourly'</span>]</div><div class="line">cum_entries = subway_df[<span class="string">'ENTRIESn'</span>]</div><div class="line">rain = subway_df[<span class="string">'meanprecipi'</span>]</div><div class="line">temp = subway_df[<span class="string">'meantempi'</span>]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">correlation</span><span class="params">(x, y)</span>:</span></div><div class="line">    std_x = (x - x.mean()) / x.std(ddof=<span class="number">0</span>)</div><div class="line">    std_y = (y - y.mean()) / y.std(ddof=<span class="number">0</span>)</div><div class="line">    r = (std_x * std_y).mean()</div><div class="line">    <span class="keyword">return</span> r</div><div class="line"><span class="keyword">print</span> correlation(entries, rain)</div><div class="line"><span class="keyword">print</span> correlation(entries, temp)</div><div class="line"><span class="keyword">print</span> correlation(rain, temp)</div><div class="line"><span class="keyword">print</span> correlation(entries, cum_entries)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>0.0356485157722
+-0.0266933483216
+-0.229034323408
+0.585895470766
+</code></pre><p>corr() Series</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">entries.corr(rain)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>0.03564851577224401
+</code></pre><p>corr() DataFrame</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> subway_df[[<span class="string">'ENTRIESn_hourly'</span>, <span class="string">'ENTRIESn'</span>, <span class="string">'meanprecipi'</span>, <span class="string">'meantempi'</span>]].corr()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>                 ENTRIESn_hourly  ENTRIESn  meanprecipi  meantempi
+ENTRIESn_hourly         1.000000  0.585895     0.035649  -0.026693
+ENTRIESn                0.585895  1.000000     0.027374   0.015420
+meanprecipi             0.035649  0.027374     1.000000  -0.229034
+meantempi              -0.026693  0.015420    -0.229034   1.000000
+</code></pre><h2 id="Panda-向量運算"><a href="#Panda-向量運算" class="headerlink" title="Panda 向量運算"></a>Panda 向量運算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div></pre></td></tr></table></figure>
+<p>output:</p>
+<p>基本運算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">df1 = pd.DataFrame(&#123;<span class="string">'a'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">'b'</span>: [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="string">'c'</span>: [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]&#125;,</div><div class="line">                   index=[<span class="string">'row1'</span>, <span class="string">'row2'</span>, <span class="string">'row3'</span>])</div><div class="line">df2 = pd.DataFrame(&#123;<span class="string">'a'</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>], <span class="string">'b'</span>: [<span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>], <span class="string">'c'</span>: [<span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>]&#125;,</div><div class="line">                   index=[<span class="string">'row4'</span>, <span class="string">'row3'</span>, <span class="string">'row2'</span>])</div><div class="line"><span class="keyword">print</span> df1 + df2</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>         a     b     c
+row1   NaN   NaN   NaN
+row2  32.0  65.0  98.0
+row3  23.0  56.0  89.0
+row4   NaN   NaN   NaN
+</code></pre><p>函數運算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">entries_and_exits = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'ENTRIESn'</span>: [<span class="number">3144312</span>, <span class="number">3144335</span>, <span class="number">3144353</span>, <span class="number">3144424</span>, <span class="number">3144594</span>,</div><div class="line">                 <span class="number">3144808</span>, <span class="number">3144895</span>, <span class="number">3144905</span>, <span class="number">3144941</span>, <span class="number">3145094</span>],</div><div class="line">    <span class="string">'EXITSn'</span>: [<span class="number">1088151</span>, <span class="number">1088159</span>, <span class="number">1088177</span>, <span class="number">1088231</span>, <span class="number">1088275</span>,</div><div class="line">               <span class="number">1088317</span>, <span class="number">1088328</span>, <span class="number">1088331</span>, <span class="number">1088420</span>, <span class="number">1088753</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">print</span> entries_and_exits - entries_and_exits.shift()</div><div class="line"><span class="keyword">print</span> entries_and_exits.diff()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   ENTRIESn  EXITSn
+0       NaN     NaN
+1      23.0     8.0
+2      18.0    18.0
+3      71.0    54.0
+4     170.0    44.0
+5     214.0    42.0
+6      87.0    11.0
+7      10.0     3.0
+8      36.0    89.0
+9     153.0   333.0
+   ENTRIESn  EXITSn
+0       NaN     NaN
+1      23.0     8.0
+2      18.0    18.0
+3      71.0    54.0
+4     170.0    44.0
+5     214.0    42.0
+6      87.0    11.0
+7      10.0     3.0
+8      36.0    89.0
+9     153.0   333.0
+</code></pre><h2 id="applymap"><a href="#applymap" class="headerlink" title="applymap()"></a>applymap()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'a'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'b'</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>],</div><div class="line">    <span class="string">'c'</span>: [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_one</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">return</span> x + <span class="number">1</span></div><div class="line">    </div><div class="line"><span class="keyword">print</span> df.applymap(add_one)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   a   b   c
+0  2  11   6
+1  3  21  11
+2  4  31  16
+</code></pre><p>convert grade to A-E</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">grades_df = pd.DataFrame(</div><div class="line">    data=&#123;<span class="string">'exam1'</span>: [<span class="number">43</span>, <span class="number">81</span>, <span class="number">78</span>, <span class="number">75</span>, <span class="number">89</span>, <span class="number">70</span>, <span class="number">91</span>, <span class="number">65</span>, <span class="number">98</span>, <span class="number">87</span>],</div><div class="line">          <span class="string">'exam2'</span>: [<span class="number">24</span>, <span class="number">63</span>, <span class="number">56</span>, <span class="number">56</span>, <span class="number">67</span>, <span class="number">51</span>, <span class="number">79</span>, <span class="number">46</span>, <span class="number">72</span>, <span class="number">60</span>]&#125;,</div><div class="line">    index=[<span class="string">'Andre'</span>, <span class="string">'Barry'</span>, <span class="string">'Chris'</span>, <span class="string">'Dan'</span>, <span class="string">'Emilio'</span>, </div><div class="line">           <span class="string">'Fred'</span>, <span class="string">'Greta'</span>, <span class="string">'Humbert'</span>, <span class="string">'Ivan'</span>, <span class="string">'James'</span>]</div><div class="line">)</div><div class="line"><span class="keyword">print</span> grades_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>         exam1  exam2
+Andre       43     24
+Barry       81     63
+Chris       78     56
+Dan         75     56
+Emilio      89     67
+Fred        70     51
+Greta       91     79
+Humbert     65     46
+Ivan        98     72
+James       87     60
+</code></pre><p>convert grade</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert_grades</span><span class="params">(grades)</span>:</span></div><div class="line">    <span class="keyword">if</span> grades &gt;= <span class="number">90</span> <span class="keyword">and</span> grades &lt;= <span class="number">100</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'A'</span></div><div class="line">    <span class="keyword">elif</span> grades &gt;= <span class="number">80</span> <span class="keyword">and</span> grades &lt; <span class="number">90</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'B'</span></div><div class="line">    <span class="keyword">elif</span> grades &gt;= <span class="number">70</span> <span class="keyword">and</span> grades &lt; <span class="number">80</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'C'</span></div><div class="line">    <span class="keyword">elif</span> grades &gt;= <span class="number">60</span> <span class="keyword">and</span> grades &lt; <span class="number">70</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'D'</span></div><div class="line">    <span class="keyword">elif</span> grades &gt;= <span class="number">0</span> <span class="keyword">and</span> grades &lt; <span class="number">60</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'E'</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"><span class="keyword">print</span> grades_df.applymap(convert_grades)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>        exam1 exam2
+Andre       E     E
+Barry       B     D
+Chris       C     E
+Dan         C     E
+Emilio      B     D
+Fred        C     E
+Greta       A     C
+Humbert     D     E
+Ivan        A     C
+James       B     D
+</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">grades_df = pd.DataFrame(</div><div class="line">    data=&#123;<span class="string">'exam1'</span>: [<span class="number">43</span>, <span class="number">81</span>, <span class="number">78</span>, <span class="number">75</span>, <span class="number">89</span>, <span class="number">70</span>, <span class="number">91</span>, <span class="number">65</span>, <span class="number">98</span>, <span class="number">87</span>],</div><div class="line">          <span class="string">'exam2'</span>: [<span class="number">24</span>, <span class="number">63</span>, <span class="number">56</span>, <span class="number">56</span>, <span class="number">67</span>, <span class="number">51</span>, <span class="number">79</span>, <span class="number">46</span>, <span class="number">72</span>, <span class="number">60</span>]&#125;,</div><div class="line">    index=[<span class="string">'Andre'</span>, <span class="string">'Barry'</span>, <span class="string">'Chris'</span>, <span class="string">'Dan'</span>, <span class="string">'Emilio'</span>, </div><div class="line">           <span class="string">'Fred'</span>, <span class="string">'Greta'</span>, <span class="string">'Humbert'</span>, <span class="string">'Ivan'</span>, <span class="string">'James'</span>]</div><div class="line">)</div><div class="line"><span class="keyword">print</span> grades_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>         exam1  exam2
+Andre       43     24
+Barry       81     63
+Chris       78     56
+Dan         75     56
+Emilio      89     67
+Fred        70     51
+Greta       91     79
+Humbert     65     46
+Ivan        98     72
+James       87     60
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert_grades_curve</span><span class="params">(exam_grades)</span>:</span></div><div class="line">    <span class="keyword">return</span> pd.qcut(exam_grades,</div><div class="line">                   [<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">1</span>],</div><div class="line">                   labels=[<span class="string">'F'</span>, <span class="string">'D'</span>, <span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>])</div><div class="line"><span class="keyword">print</span> convert_grades_curve(grades_df[<span class="string">'exam1'</span>])</div><div class="line"><span class="keyword">print</span> grades_df.apply(convert_grades_curve)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>Andre      F
+Barry      B
+Chris      C
+Dan        C
+Emilio     B
+Fred       C
+Greta      A
+Humbert    D
+Ivan       A
+James      B
+Name: exam1, dtype: category
+Categories (5, object): [F &lt; D &lt; C &lt; B &lt; A]
+        exam1 exam2
+Andre       F     F
+Barry       B     B
+Chris       C     C
+Dan         C     C
+Emilio      B     B
+Fred        C     C
+Greta       A     A
+Humbert     D     D
+Ivan        A     A
+James       B     B
+</code></pre><p>other example</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">standardize_column</span><span class="params">(column)</span>:</span></div><div class="line">    <span class="keyword">return</span> (column - column.mean()) / column.std(ddof=<span class="number">0</span>)</div><div class="line"><span class="keyword">print</span> df.apply(standardize_column)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>          a         b         c
+0 -1.224745 -1.224745 -1.224745
+1  0.000000  0.000000  0.000000
+2  1.224745  1.224745  1.224745
+</code></pre><p>another example</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'a'</span>: [<span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>],</div><div class="line">    <span class="string">'b'</span>: [<span class="number">20</span>, <span class="number">10</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">30</span>],</div><div class="line">    <span class="string">'c'</span>: [<span class="number">25</span>, <span class="number">20</span>, <span class="number">5</span>, <span class="number">15</span>, <span class="number">10</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">print</span> df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   a   b   c
+0  4  20  25
+1  5  10  20
+2  3  40   5
+3  1  50  15
+4  2  30  10
+</code></pre><p>output</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">second_largest_in_column</span><span class="params">(column)</span>:</span></div><div class="line">    <span class="keyword">return</span> column.sort_values(ascending=<span class="keyword">False</span>).iloc[<span class="number">1</span>]</div><div class="line">df.apply(second_largest_in_column)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>a     4
+b    40
+c    20
+dtype: int64
+</code></pre><h2 id="DataFrame-Series"><a href="#DataFrame-Series" class="headerlink" title="DataFrame + Series"></a>DataFrame + Series</h2><p>基本例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="number">0</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="number">1</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="number">2</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="number">3</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    0   1    2    3
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    0   1    2    3
+0  11  52   93  134
+1  21  62  103  144
+2  31  72  113  154
+3  41  82  123  164
+</code></pre><p>1D DataFrame</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;<span class="number">0</span>: [<span class="number">10</span>], <span class="number">1</span>: [<span class="number">20</span>], <span class="number">2</span>: [<span class="number">30</span>], <span class="number">3</span>: [<span class="number">40</span>]&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div><div class="line"></div><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;<span class="number">0</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>]&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    0   1   2   3
+0  10  20  30  40
+
+    0   1   2   3
+0  11  22  33  44
+    0
+0  10
+1  20
+2  30
+3  40
+
+    0   1   2   3
+0  11 NaN NaN NaN
+1  21 NaN NaN NaN
+2  31 NaN NaN NaN
+3  41 NaN NaN NaN
+</code></pre><p>Adding when DataFrame column names match Series index</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'a'</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="string">'b'</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="string">'c'</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="string">'d'</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    a   b    c    d
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    a   b    c    d
+0  11  52   93  134
+1  21  62  103  144
+2  31  72  113  154
+3  41  82  123  164
+</code></pre><p>Adding when DataFrame column names don’t match Series index</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'a'</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="string">'b'</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="string">'c'</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="string">'d'</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    a   b    c    d
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    0   1   2   3   a   b   c   d
+0 NaN NaN NaN NaN NaN NaN NaN NaN
+1 NaN NaN NaN NaN NaN NaN NaN NaN
+2 NaN NaN NaN NaN NaN NaN NaN NaN
+3 NaN NaN NaN NaN NaN NaN NaN NaN
+</code></pre><p>Adding using +</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="number">0</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="number">1</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="number">2</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="number">3</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df + s</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    0   1    2    3
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    0   1    2    3
+0  11  52   93  134
+1  21  62  103  144
+2  31  72  113  154
+3  41  82  123  164
+</code></pre><p>Adding with axis=’index’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="number">0</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="number">1</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="number">2</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="number">3</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df.add(s, axis=<span class="string">'index'</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    0   1    2    3
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    0   1    2    3
+0  11  51   91  131
+1  22  62  102  142
+2  33  73  113  153
+3  44  84  124  164
+</code></pre><p>Adding with axis=’columns’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div><div class="line">df = pd.DataFrame(&#123;</div><div class="line">    <span class="number">0</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>],</div><div class="line">    <span class="number">1</span>: [<span class="number">50</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>],</div><div class="line">    <span class="number">2</span>: [<span class="number">90</span>, <span class="number">100</span>, <span class="number">110</span>, <span class="number">120</span>],</div><div class="line">    <span class="number">3</span>: [<span class="number">130</span>, <span class="number">140</span>, <span class="number">150</span>, <span class="number">160</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">print</span> df</div><div class="line"><span class="keyword">print</span> <span class="string">''</span> <span class="comment"># Create a blank line between outputs</span></div><div class="line"><span class="keyword">print</span> df.add(s, axis=<span class="string">'columns'</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    0   1    2    3
+0  10  50   90  130
+1  20  60  100  140
+2  30  70  110  150
+3  40  80  120  160
+
+    0   1    2    3
+0  11  52   93  134
+1  21  62  103  144
+2  31  72  113  154
+3  41  82  123  164
+</code></pre><p>standardize</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">grades_df = pd.DataFrame(</div><div class="line">    data=&#123;<span class="string">'exam1'</span>: [<span class="number">43</span>, <span class="number">81</span>, <span class="number">78</span>, <span class="number">75</span>, <span class="number">89</span>, <span class="number">70</span>, <span class="number">91</span>, <span class="number">65</span>, <span class="number">98</span>, <span class="number">87</span>],</div><div class="line">          <span class="string">'exam2'</span>: [<span class="number">24</span>, <span class="number">63</span>, <span class="number">56</span>, <span class="number">56</span>, <span class="number">67</span>, <span class="number">51</span>, <span class="number">79</span>, <span class="number">46</span>, <span class="number">72</span>, <span class="number">60</span>]&#125;,</div><div class="line">    index=[<span class="string">'Andre'</span>, <span class="string">'Barry'</span>, <span class="string">'Chris'</span>, <span class="string">'Dan'</span>, <span class="string">'Emilio'</span>, </div><div class="line">           <span class="string">'Fred'</span>, <span class="string">'Greta'</span>, <span class="string">'Humbert'</span>, <span class="string">'Ivan'</span>, <span class="string">'James'</span>]</div><div class="line">)</div><div class="line"><span class="keyword">print</span> grades_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>         exam1  exam2
+Andre       43     24
+Barry       81     63
+Chris       78     56
+Dan         75     56
+Emilio      89     67
+Fred        70     51
+Greta       91     79
+Humbert     65     46
+Ivan        98     72
+James       87     60
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> (grades_df - grades_df.mean()) / grades_df.std(ddof=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>            exam1     exam2
+Andre   -2.315341 -2.304599
+Barry    0.220191  0.386400
+Chris    0.020017 -0.096600
+Dan     -0.180156 -0.096600
+Emilio   0.753987  0.662400
+Fred    -0.513779 -0.441600
+Greta    0.887436  1.490400
+Humbert -0.847401 -0.786600
+Ivan     1.354508  1.007400
+James    0.620538  0.179400
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> grades_df.sub(grades_df.mean(axis=<span class="string">"columns"</span>),</div><div class="line">                    axis=<span class="string">"index"</span>).div(grades_df.std(axis=<span class="string">"columns"</span>,</div><div class="line">                                                    ddof=<span class="number">0</span>),</div><div class="line">                                      axis=<span class="string">"index"</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>         exam1  exam2
+Andre      1.0   -1.0
+Barry      1.0   -1.0
+Chris      1.0   -1.0
+Dan        1.0   -1.0
+Emilio     1.0   -1.0
+Fred       1.0   -1.0
+Greta      1.0   -1.0
+Humbert    1.0   -1.0
+Ivan       1.0   -1.0
+James      1.0   -1.0
+</code></pre><h2 id="groupby"><a href="#groupby" class="headerlink" title="groupby()"></a>groupby()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"></div><div class="line">values = np.array([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>])</div><div class="line">example_df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'value'</span>: values,</div><div class="line">    <span class="string">'even'</span>: values % <span class="number">2</span> == <span class="number">0</span>,</div><div class="line">    <span class="string">'above_three'</span>: values &gt; <span class="number">3</span> </div><div class="line">&#125;, index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>])</div><div class="line"><span class="keyword">print</span> example_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>  above_three   even  value
+a       False  False      1
+b       False  False      3
+c       False   True      2
+d        True   True      4
+e       False  False      1
+f        True   True      6
+g        True   True      4
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">grouped_data = example_df.groupby(<span class="string">'even'</span>)</div><div class="line"><span class="keyword">print</span> grouped_data.groups</div><div class="line">grouped_data = example_df.groupby([<span class="string">'even'</span>, <span class="string">'above_three'</span>])</div><div class="line"><span class="keyword">print</span> grouped_data.groups</div><div class="line">grouped_data = example_df.groupby(<span class="string">'even'</span>)</div><div class="line"><span class="keyword">print</span> grouped_data.sum()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>{False: [&apos;a&apos;, &apos;b&apos;, &apos;e&apos;], True: [&apos;c&apos;, &apos;d&apos;, &apos;f&apos;, &apos;g&apos;]}
+{(True, False): [&apos;c&apos;], (False, False): [&apos;a&apos;, &apos;b&apos;, &apos;e&apos;], (True, True): [&apos;d&apos;, &apos;f&apos;, &apos;g&apos;]}
+       above_three  value
+even                     
+False          0.0      5
+True           3.0     16
+</code></pre><p>Limit columns in result</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">grouped_data = example_df.groupby(<span class="string">'even'</span>)</div><div class="line"></div><div class="line"><span class="comment"># You can take one or more columns from the result DataFrame</span></div><div class="line"><span class="keyword">print</span> grouped_data.sum()[<span class="string">'value'</span>]</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'\n'</span> <span class="comment"># Blank line to separate results</span></div><div class="line"></div><div class="line"><span class="comment"># You can also take a subset of columns from the grouped data before </span></div><div class="line"><span class="comment"># collapsing to a DataFrame. In this case, the result is the same.</span></div><div class="line"><span class="keyword">print</span> grouped_data[<span class="string">'value'</span>].sum()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>even
+False     5
+True     16
+Name: value, dtype: int64
+
+
+even
+False     5
+True     16
+Name: value, dtype: int64
+</code></pre><h2 id="merge"><a href="#merge" class="headerlink" title="merge()"></a>merge()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">subway_df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'UNIT'</span>: [<span class="string">'R003'</span>, <span class="string">'R003'</span>, <span class="string">'R003'</span>, <span class="string">'R003'</span>, <span class="string">'R003'</span>, <span class="string">'R004'</span>, <span class="string">'R004'</span>, <span class="string">'R004'</span>,</div><div class="line">             <span class="string">'R004'</span>, <span class="string">'R004'</span>],</div><div class="line">    <span class="string">'DATEn'</span>: [<span class="string">'05-01-11'</span>, <span class="string">'05-02-11'</span>, <span class="string">'05-03-11'</span>, <span class="string">'05-04-11'</span>, <span class="string">'05-05-11'</span>,</div><div class="line">              <span class="string">'05-01-11'</span>, <span class="string">'05-02-11'</span>, <span class="string">'05-03-11'</span>, <span class="string">'05-04-11'</span>, <span class="string">'05-05-11'</span>],</div><div class="line">    <span class="string">'hour'</span>: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">    <span class="string">'ENTRIESn'</span>: [ <span class="number">4388333</span>,  <span class="number">4388348</span>,  <span class="number">4389885</span>,  <span class="number">4391507</span>,  <span class="number">4393043</span>, <span class="number">14656120</span>,</div><div class="line">                 <span class="number">14656174</span>, <span class="number">14660126</span>, <span class="number">14664247</span>, <span class="number">14668301</span>],</div><div class="line">    <span class="string">'EXITSn'</span>: [ <span class="number">2911002</span>,  <span class="number">2911036</span>,  <span class="number">2912127</span>,  <span class="number">2913223</span>,  <span class="number">2914284</span>, <span class="number">14451774</span>,</div><div class="line">               <span class="number">14451851</span>, <span class="number">14454734</span>, <span class="number">14457780</span>, <span class="number">14460818</span>],</div><div class="line">    <span class="string">'latitude'</span>: [ <span class="number">40.689945</span>,  <span class="number">40.689945</span>,  <span class="number">40.689945</span>,  <span class="number">40.689945</span>,  <span class="number">40.689945</span>,</div><div class="line">                  <span class="number">40.69132</span> ,  <span class="number">40.69132</span> ,  <span class="number">40.69132</span> ,  <span class="number">40.69132</span> ,  <span class="number">40.69132</span> ],</div><div class="line">    <span class="string">'longitude'</span>: [<span class="number">-73.872564</span>, <span class="number">-73.872564</span>, <span class="number">-73.872564</span>, <span class="number">-73.872564</span>, <span class="number">-73.872564</span>,</div><div class="line">                  <span class="number">-73.867135</span>, <span class="number">-73.867135</span>, <span class="number">-73.867135</span>, <span class="number">-73.867135</span>, <span class="number">-73.867135</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">weather_df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'DATEn'</span>: [<span class="string">'05-01-11'</span>, <span class="string">'05-01-11'</span>, <span class="string">'05-02-11'</span>, <span class="string">'05-02-11'</span>, <span class="string">'05-03-11'</span>,</div><div class="line">              <span class="string">'05-03-11'</span>, <span class="string">'05-04-11'</span>, <span class="string">'05-04-11'</span>, <span class="string">'05-05-11'</span>, <span class="string">'05-05-11'</span>],</div><div class="line">    <span class="string">'hour'</span>: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">    <span class="string">'latitude'</span>: [ <span class="number">40.689945</span>,  <span class="number">40.69132</span> ,  <span class="number">40.689945</span>,  <span class="number">40.69132</span> ,  <span class="number">40.689945</span>,</div><div class="line">                  <span class="number">40.69132</span> ,  <span class="number">40.689945</span>,  <span class="number">40.69132</span> ,  <span class="number">40.689945</span>,  <span class="number">40.69132</span> ],</div><div class="line">    <span class="string">'longitude'</span>: [<span class="number">-73.872564</span>, <span class="number">-73.867135</span>, <span class="number">-73.872564</span>, <span class="number">-73.867135</span>, <span class="number">-73.872564</span>,</div><div class="line">                  <span class="number">-73.867135</span>, <span class="number">-73.872564</span>, <span class="number">-73.867135</span>, <span class="number">-73.872564</span>, <span class="number">-73.867135</span>],</div><div class="line">    <span class="string">'pressurei'</span>: [ <span class="number">30.24</span>,  <span class="number">30.24</span>,  <span class="number">30.32</span>,  <span class="number">30.32</span>,  <span class="number">30.14</span>,  <span class="number">30.14</span>,  <span class="number">29.98</span>,  <span class="number">29.98</span>,</div><div class="line">                   <span class="number">30.01</span>,  <span class="number">30.01</span>],</div><div class="line">    <span class="string">'fog'</span>: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">    <span class="string">'rain'</span>: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">    <span class="string">'tempi'</span>: [ <span class="number">52.</span> ,  <span class="number">52.</span> ,  <span class="number">48.9</span>,  <span class="number">48.9</span>,  <span class="number">54.</span> ,  <span class="number">54.</span> ,  <span class="number">57.2</span>,  <span class="number">57.2</span>,  <span class="number">48.9</span>,  <span class="number">48.9</span>],</div><div class="line">    <span class="string">'wspdi'</span>: [  <span class="number">8.1</span>,   <span class="number">8.1</span>,   <span class="number">6.9</span>,   <span class="number">6.9</span>,   <span class="number">3.5</span>,   <span class="number">3.5</span>,  <span class="number">15.</span> ,  <span class="number">15.</span> ,  <span class="number">15.</span> ,  <span class="number">15.</span> ]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">print</span> subway_df</div><div class="line"><span class="keyword">print</span> weather_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>      DATEn  ENTRIESn    EXITSn  UNIT  hour   latitude  longitude
+0  05-01-11   4388333   2911002  R003     0  40.689945 -73.872564
+1  05-02-11   4388348   2911036  R003     0  40.689945 -73.872564
+2  05-03-11   4389885   2912127  R003     0  40.689945 -73.872564
+3  05-04-11   4391507   2913223  R003     0  40.689945 -73.872564
+4  05-05-11   4393043   2914284  R003     0  40.689945 -73.872564
+5  05-01-11  14656120  14451774  R004     0  40.691320 -73.867135
+6  05-02-11  14656174  14451851  R004     0  40.691320 -73.867135
+7  05-03-11  14660126  14454734  R004     0  40.691320 -73.867135
+8  05-04-11  14664247  14457780  R004     0  40.691320 -73.867135
+9  05-05-11  14668301  14460818  R004     0  40.691320 -73.867135
+      DATEn  fog  hour   latitude  longitude  pressurei  rain  tempi  wspdi
+0  05-01-11    0     0  40.689945 -73.872564      30.24     0   52.0    8.1
+1  05-01-11    0     0  40.691320 -73.867135      30.24     0   52.0    8.1
+2  05-02-11    0     0  40.689945 -73.872564      30.32     0   48.9    6.9
+3  05-02-11    0     0  40.691320 -73.867135      30.32     0   48.9    6.9
+4  05-03-11    0     0  40.689945 -73.872564      30.14     0   54.0    3.5
+5  05-03-11    0     0  40.691320 -73.867135      30.14     0   54.0    3.5
+6  05-04-11    0     0  40.689945 -73.872564      29.98     0   57.2   15.0
+7  05-04-11    0     0  40.691320 -73.867135      29.98     0   57.2   15.0
+8  05-05-11    0     0  40.689945 -73.872564      30.01     0   48.9   15.0
+9  05-05-11    0     0  40.691320 -73.867135      30.01     0   48.9   15.0
+</code></pre><p>merge</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> subway_df.merge(weather_df,</div><div class="line">                      on=[<span class="string">'DATEn'</span>, <span class="string">'hour'</span>, <span class="string">'longitude'</span>, <span class="string">'longitude'</span>],</div><div class="line">                      how=<span class="string">'right'</span>)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>      DATEn  ENTRIESn    EXITSn  UNIT  hour  latitude_x  longitude  fog  \
+0  05-01-11   4388333   2911002  R003     0   40.689945 -73.872564    0   
+1  05-02-11   4388348   2911036  R003     0   40.689945 -73.872564    0   
+2  05-03-11   4389885   2912127  R003     0   40.689945 -73.872564    0   
+3  05-04-11   4391507   2913223  R003     0   40.689945 -73.872564    0   
+4  05-05-11   4393043   2914284  R003     0   40.689945 -73.872564    0   
+5  05-01-11  14656120  14451774  R004     0   40.691320 -73.867135    0   
+6  05-02-11  14656174  14451851  R004     0   40.691320 -73.867135    0   
+7  05-03-11  14660126  14454734  R004     0   40.691320 -73.867135    0   
+8  05-04-11  14664247  14457780  R004     0   40.691320 -73.867135    0   
+9  05-05-11  14668301  14460818  R004     0   40.691320 -73.867135    0   
+
+   latitude_y  pressurei  rain  tempi  wspdi  
+0   40.689945      30.24     0   52.0    8.1  
+1   40.689945      30.32     0   48.9    6.9  
+2   40.689945      30.14     0   54.0    3.5  
+3   40.689945      29.98     0   57.2   15.0  
+4   40.689945      30.01     0   48.9   15.0  
+5   40.691320      30.24     0   52.0    8.1  
+6   40.691320      30.32     0   48.9    6.9  
+7   40.691320      30.14     0   54.0    3.5  
+8   40.691320      29.98     0   57.2   15.0  
+9   40.691320      30.01     0   48.9   15.0  
+</code></pre><h2 id="畫2D-Panda"><a href="#畫2D-Panda" class="headerlink" title="畫2D Panda"></a>畫2D Panda</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line">values = np.array([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>])</div><div class="line">example_df = pd.DataFrame(&#123;</div><div class="line">    <span class="string">'value'</span>: values,</div><div class="line">    <span class="string">'even'</span>: values % <span class="number">2</span> == <span class="number">0</span>,</div><div class="line">    <span class="string">'above_three'</span>: values &gt; <span class="number">3</span> </div><div class="line">&#125;, index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>])</div><div class="line"><span class="keyword">print</span> example_df</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>  above_three   even  value
+a       False  False      1
+b       False  False      3
+c       False   True      2
+d        True   True      4
+e       False  False      1
+f        True   True      6
+g        True   True      4
+</code></pre><p>groupby() without as_index</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">first_even = example_df.groupby(<span class="string">'even'</span>).first()</div><div class="line"><span class="keyword">print</span> first_even</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>      above_three  value
+even                    
+False       False      1
+True        False      2
+</code></pre><p>groupby() with as_index=False</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">first_even = example_df.groupby(<span class="string">'even'</span>, as_index=<span class="keyword">False</span>).first()</div><div class="line"><span class="keyword">print</span> first_even</div><div class="line"><span class="keyword">print</span> first_even[<span class="string">'even'</span>] <span class="comment"># Now 'even' is still a column in the DataFrame</span></div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    even above_three  value
+0  False       False      1
+1   True       False      2
+0    False
+1     True
+Name: even, dtype: bool
+</code></pre><p>example</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">filename = <span class="string">'nyc_subway_weather.csv'</span></div><div class="line">subway_df = pd.read_csv(filename)</div><div class="line"><span class="keyword">print</span> subway_df.head()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>   UNIT     DATEn     TIMEn  ENTRIESn   EXITSn  ENTRIESn_hourly  \
+0  R003  05-01-11  00:00:00   4388333  2911002              0.0   
+1  R003  05-01-11  04:00:00   4388333  2911002              0.0   
+2  R003  05-01-11  12:00:00   4388333  2911002              0.0   
+3  R003  05-01-11  16:00:00   4388333  2911002              0.0   
+4  R003  05-01-11  20:00:00   4388333  2911002              0.0   
+
+   EXITSn_hourly             datetime  hour  day_week     ...       pressurei  \
+0            0.0  2011-05-01 00:00:00     0         6     ...           30.22   
+1            0.0  2011-05-01 04:00:00     4         6     ...           30.25   
+2            0.0  2011-05-01 12:00:00    12         6     ...           30.28   
+3            0.0  2011-05-01 16:00:00    16         6     ...           30.26   
+4            0.0  2011-05-01 20:00:00    20         6     ...           30.28   
+
+  rain  tempi  wspdi meanprecipi  meanpressurei  meantempi  meanwspdi  \
+0    0   55.9    3.5         0.0         30.258      55.98       7.86   
+1    0   52.0    3.5         0.0         30.258      55.98       7.86   
+2    0   62.1    6.9         0.0         30.258      55.98       7.86   
+3    0   57.9   15.0         0.0         30.258      55.98       7.86   
+4    0   52.0   10.4         0.0         30.258      55.98       7.86   
+
+   weather_lat  weather_lon  
+0    40.700348   -73.887177  
+1    40.700348   -73.887177  
+2    40.700348   -73.887177  
+3    40.700348   -73.887177  
+4    40.700348   -73.887177  
+
+[5 rows x 27 columns]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data_by_location = subway_df.groupby([<span class="string">'latitude'</span>, <span class="string">'longitude'</span>],</div><div class="line">                                     as_index=<span class="keyword">False</span>).mean()</div><div class="line"><span class="keyword">print</span> data_by_location.head()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<pre><code>    latitude  longitude      ENTRIESn        EXITSn  ENTRIESn_hourly  \
+0  40.576152 -73.975925  9.659049e+06  8.641132e+06       403.896175   
+1  40.576298 -73.968523  8.306897e+06  6.646823e+06       526.697297   
+2  40.577961 -73.961806  4.552910e+07  4.612408e+07      1950.295699   
+3  40.589547 -73.974295  7.268214e+06  7.961334e+06       485.382353   
+4  40.590867 -73.797011  6.477945e+06  5.994957e+06       500.725610   
+
+   EXITSn_hourly       hour  day_week   weekday       fog     ...       \
+0     325.956284  10.032787  2.907104  0.715847  0.010929     ...        
+1     419.562162   9.989189  2.951351  0.708108  0.010811     ...        
+2    1930.483871  10.000000  2.935484  0.709677  0.010753     ...        
+3     362.941176  10.164706  2.905882  0.705882  0.011765     ...        
+4     374.628049  10.097561  2.951220  0.719512  0.024390     ...        
+
+   pressurei      rain      tempi     wspdi  meanprecipi  meanpressurei  \
+0  29.972568  0.229508  63.383607  5.553005     0.006284      29.972568   
+1  29.973297  0.227027  63.375135  5.517838     0.006216      29.973297   
+2  29.973118  0.225806  63.394086  5.531720     0.006183      29.973118   
+3  29.971176  0.200000  63.650588  5.630588     0.006118      29.971176   
+4  29.981098  0.195122  61.721341  9.945122     0.002744      29.981098   
+
+   meantempi  meanwspdi  weather_lat  weather_lon  
+0  63.383607   5.553005    40.603489   -73.958763  
+1  63.375135   5.517838    40.603489   -73.958763  
+2  63.394086   5.531720    40.603489   -73.958763  
+3  63.650588   5.630588    40.603489   -73.958763  
+4  61.721341   9.945122    40.660004   -73.844849  
+
+[5 rows x 21 columns]
+</code></pre><p>畫圖</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">scaled_entries = <span class="number">5</span> * data_by_location[<span class="string">'ENTRIESn_hourly'</span>] / data_by_location[<span class="string">'ENTRIESn_hourly'</span>].std()</div><div class="line">plt.scatter(data_by_location[<span class="string">'latitude'</span>],</div><div class="line">            data_by_location[<span class="string">'longitude'</span>],</div><div class="line">            s=scaled_entries)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p>output:</p>
+<img src="/2017/01/11/Numpy-and-Pandas-2D/lesson3_87_0.png" alt="image" title="image">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/" data-id="cixrszn6r0006yxu5uxf54lc1" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/09/Numpy-and-Pandas-1D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Numpy and Pandas 1D</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Numpy/" style="font-size: 15px;">Numpy</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/11/Numpy-and-Pandas-2D/">Numpy and Pandas 2D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/09/Numpy-and-Pandas-1D/">Numpy and Pandas 1D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/defaultdict/">Python Module: defaultdict</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/07/Send-FB-message-by-Python/">Send FB message by Python</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/07/Hexo-Git-Blog/">Hexo + Git = Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CB Hsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'cbhsu';
+  
+  var disqus_url = 'http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-09T15:13:26.000Z</updated>
+  <updated>2017-01-10T17:49:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,15 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Numpy and Pandas 2D</title>
+    <link href="http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/"/>
+    <id>http://yoursite.com/2017/01/11/Numpy-and-Pandas-2D/</id>
+    <published>2017-01-10T17:38:23.000Z</published>
+    <updated>2017-01-10T17:49:46.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Download&quot;&gt;&lt;a href=&quot;#Download&quot; class=&quot;headerlink&quot; title=&quot;Download&quot;&gt;&lt;/a&gt;Download&lt;/h2&gt;&lt;a href=&quot;/2017/01/11/Numpy-and-Pandas-2D/lesson3.ipynb&quot; title=&quot;lesson3.ipynb&quot;&gt;lesson3.ipynb&lt;/a&gt;
+&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.udacity.com/&quot;&gt;Course on Udacity&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Numpy" scheme="http://yoursite.com/tags/Numpy/"/>
+    
+      <category term="Pandas" scheme="http://yoursite.com/tags/Pandas/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Numpy and Pandas 1D</title>
     <link href="http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/"/>
     <id>http://yoursite.com/2017/01/09/Numpy-and-Pandas-1D/</id>
     <published>2017-01-09T14:52:53.000Z</published>
-    <updated>2017-01-09T15:13:26.000Z</updated>
+    <updated>2017-01-09T16:13:18.000Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Numpy-基本用法&quot;&gt;&lt;a href=&quot;#Numpy-基本用法&quot; class=&quot;headerlink&quot; title=&quot;Numpy 基本用法&quot;&gt;&lt;/a&gt;Numpy 基本用法&lt;/h2&gt;&lt;p&gt;numpy 陣列&lt;/p&gt;
+      &lt;h2 id=&quot;Download&quot;&gt;&lt;a href=&quot;#Download&quot; class=&quot;headerlink&quot; title=&quot;Download&quot;&gt;&lt;/a&gt;Download&lt;/h2&gt;&lt;a href=&quot;/2017/01/09/Numpy-and-Pandas-1D/lesson2.ipynb&quot; title=&quot;lesson2.ipynb&quot;&gt;lesson2.ipynb&lt;/a&gt;
+&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.udacity.com/&quot;&gt;Course on Udacity&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Numpy-基本用法&quot;&gt;&lt;a href=&quot;#Numpy-基本用法&quot; class=&quot;headerlink&quot; title=&quot;Numpy 基本用法&quot;&gt;&lt;/a&gt;Numpy 基本用法&lt;/h2&gt;&lt;p&gt;numpy 陣列&lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; np&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;countries = np.array([&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Afghanistan&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Albania&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Algeria&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Angola&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Argentina&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Armenia&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Australia&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Austria&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Azerbaijan&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bahamas&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Bahrain&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bangladesh&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Barbados&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Belarus&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Belgium&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Belize&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Benin&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bhutan&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bolivia&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Bosnia and Herzegovina&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;])&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
