@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-10T17:49:46.000Z</updated>
+  <updated>2017-02-05T03:33:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R: Data Frames</title>
+    <link href="http://yoursite.com/2017/02/05/Data-Frames/"/>
+    <id>http://yoursite.com/2017/02/05/Data-Frames/</id>
+    <published>2017-02-05T03:29:48.000Z</published>
+    <updated>2017-02-05T03:33:23.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.datacamp.com&quot;&gt;Datacamp&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="R" scheme="http://yoursite.com/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R: Factors</title>
+    <link href="http://yoursite.com/2017/02/05/R-Factors/"/>
+    <id>http://yoursite.com/2017/02/05/R-Factors/</id>
+    <published>2017-02-05T03:25:50.000Z</published>
+    <updated>2017-02-05T03:28:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.datacamp.com&quot;&gt;Datacamp&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="R" scheme="http://yoursite.com/tags/R/"/>
+    
+  </entry>
   
   <entry>
     <title>Numpy and Pandas 2D</title>

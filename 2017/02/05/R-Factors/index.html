@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>R: Factors | CB&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ReferenceDatacamp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R: Factors">
+<meta property="og:url" content="http://yoursite.com/2017/02/05/R-Factors/index.html">
+<meta property="og:site_name" content="CB's Blog">
+<meta property="og:description" content="ReferenceDatacamp">
+<meta property="og:updated_time" content="2017-02-05T03:28:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R: Factors">
+<meta name="twitter:description" content="ReferenceDatacamp">
+  
+    <link rel="alternate" href="/atom.xml" title="CB&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89921841-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CB&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-R-Factors" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/05/R-Factors/" class="article-date">
+  <time datetime="2017-02-05T03:25:50.000Z" itemprop="datePublished">2017-02-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      R: Factors
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.datacamp.com" target="_blank" rel="external">Datacamp</a><br><a id="more"></a></p>
+<h2 id="What’s-a-factor-and-why-would-you-use-it"><a href="#What’s-a-factor-and-why-would-you-use-it" class="headerlink" title="What’s a factor and why would you use it?"></a>What’s a factor and why would you use it?</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Gender vector</span></div><div class="line">gender_vector &lt;- c(<span class="string">"Male"</span>, <span class="string">"Female"</span>, <span class="string">"Female"</span>, <span class="string">"Male"</span>, <span class="string">"Male"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Convert gender_vector to a factor</span></div><div class="line">factor_gender_vector &lt;- factor(gender_vector)</div><div class="line"></div><div class="line"><span class="comment"># Print out factor_gender_vector</span></div><div class="line">print(factor_gender_vector)</div></pre></td></tr></table></figure>
+<pre><code>[1] Male   Female Female Male   Male  
+Levels: Female Male
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Animals</span></div><div class="line">animals_vector &lt;- c(<span class="string">"Elephant"</span>, <span class="string">"Giraffe"</span>, <span class="string">"Donkey"</span>, <span class="string">"Horse"</span>)</div><div class="line">factor_animals_vector &lt;- factor(animals_vector)</div><div class="line">print(factor_animals_vector)</div><div class="line"></div><div class="line"><span class="comment"># Temperature</span></div><div class="line">temperature_vector &lt;- c(<span class="string">"High"</span>, <span class="string">"Low"</span>, <span class="string">"High"</span>,<span class="string">"Low"</span>, <span class="string">"Medium"</span>)</div><div class="line">factor_temperature_vector &lt;- factor(temperature_vector, order = <span class="literal">TRUE</span>, levels = c(<span class="string">"Low"</span>, <span class="string">"Medium"</span>, <span class="string">"High"</span>))</div><div class="line">print(factor_temperature_vector)</div></pre></td></tr></table></figure>
+<pre><code>[1] Elephant Giraffe  Donkey   Horse   
+Levels: Donkey Elephant Giraffe Horse
+[1] High   Low    High   Low    Medium
+Levels: Low &lt; Medium &lt; High
+</code></pre><h2 id="Factor-levels"><a href="#Factor-levels" class="headerlink" title="Factor levels"></a>Factor levels</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Code to build factor_survey_vector</span></div><div class="line">survey_vector &lt;- c(<span class="string">"M"</span>, <span class="string">"F"</span>, <span class="string">"F"</span>, <span class="string">"M"</span>, <span class="string">"M"</span>)</div><div class="line">factor_survey_vector &lt;- factor(survey_vector)</div><div class="line">print(factor_survey_vector)</div><div class="line"></div><div class="line"><span class="comment"># Specify the levels of factor_survey_vector</span></div><div class="line">levels(factor_survey_vector) &lt;- c(<span class="string">"Female"</span>, <span class="string">"Male"</span>)</div><div class="line"></div><div class="line">print(factor_survey_vector)</div></pre></td></tr></table></figure>
+<pre><code>[1] M F F M M
+Levels: F M
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+</code></pre><h2 id="Summarizing-a-factor"><a href="#Summarizing-a-factor" class="headerlink" title="Summarizing a factor"></a>Summarizing a factor</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Build factor_survey_vector with clean levels</span></div><div class="line">survey_vector &lt;- c(<span class="string">"M"</span>, <span class="string">"F"</span>, <span class="string">"F"</span>, <span class="string">"M"</span>, <span class="string">"M"</span>)</div><div class="line">factor_survey_vector &lt;- factor(survey_vector)</div><div class="line">levels(factor_survey_vector) &lt;- c(<span class="string">"Female"</span>, <span class="string">"Male"</span>)</div><div class="line">print(factor_survey_vector)</div><div class="line"></div><div class="line"><span class="comment"># Generate summary for survey_vector</span></div><div class="line">summary(survey_vector)</div><div class="line"></div><div class="line"><span class="comment"># Generate summary for factor_survey_vector</span></div><div class="line">summary(factor_survey_vector)</div></pre></td></tr></table></figure>
+<pre><code>[1] Male   Female Female Male   Male  
+Levels: Female Male
+
+
+
+   Length     Class      Mode 
+        5 character character 
+</code></pre><dl class="dl-horizontal"><br>    <dt>Female</dt><br>        <dd>2</dd><br>    <dt>Male</dt><br>        <dd>3</dd><br></dl>
+
+
+
+<h2 id="Battle-of-the-sexes"><a href="#Battle-of-the-sexes" class="headerlink" title="Battle of the sexes"></a>Battle of the sexes</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Build factor_survey_vector with clean levels</span></div><div class="line">survey_vector &lt;- c(<span class="string">"M"</span>, <span class="string">"F"</span>, <span class="string">"F"</span>, <span class="string">"M"</span>, <span class="string">"M"</span>)</div><div class="line">factor_survey_vector &lt;- factor(survey_vector)</div><div class="line">print(factor_survey_vector)</div><div class="line">levels(factor_survey_vector) &lt;- c(<span class="string">"Female"</span>, <span class="string">"Male"</span>)</div><div class="line">print(factor_survey_vector)</div><div class="line"></div><div class="line"><span class="comment"># Male</span></div><div class="line">male &lt;- factor_survey_vector[<span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="comment"># Female</span></div><div class="line">female &lt;- factor_survey_vector[<span class="number">2</span>]</div><div class="line"></div><div class="line"><span class="comment"># Battle of the sexes: Male 'larger' than female?</span></div><div class="line">male &gt; female</div></pre></td></tr></table></figure>
+<pre><code>[1] M F F M M
+Levels: F M
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+
+
+Warning message in Ops.factor(male, female):
+“‘&gt;’ not meaningful for factors”
+
+
+[1] NA
+</code></pre><h2 id="Ordered-factors"><a href="#Ordered-factors" class="headerlink" title="Ordered factors"></a>Ordered factors</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create speed_vector</span></div><div class="line">speed_vector &lt;- c(<span class="string">"fast"</span>, <span class="string">"slow"</span>, <span class="string">"slow"</span>, <span class="string">"fast"</span>, <span class="string">"insane"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Convert speed_vector to ordered factor vector</span></div><div class="line">factor_speed_vector &lt;- factor(speed_vector, ordered=<span class="literal">TRUE</span>, levels=c(<span class="string">"slow"</span>, <span class="string">"fast"</span>, <span class="string">"insane"</span>))</div><div class="line"></div><div class="line"><span class="comment"># Print factor_speed_vector</span></div><div class="line">print(factor_speed_vector)</div><div class="line">summary(factor_speed_vector)</div></pre></td></tr></table></figure>
+<pre><code>[1] fast   slow   slow   fast   insane
+Levels: slow &lt; fast &lt; insane
+</code></pre><dl class="dl-horizontal"><br>    <dt>slow</dt><br>        <dd>2</dd><br>    <dt>fast</dt><br>        <dd>2</dd><br>    <dt>insane</dt><br>        <dd>1</dd><br></dl>
+
+
+
+<h2 id="Comparing-ordered-factors"><a href="#Comparing-ordered-factors" class="headerlink" title="Comparing ordered factors"></a>Comparing ordered factors</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create factor_speed_vector</span></div><div class="line">speed_vector &lt;- c(<span class="string">"fast"</span>, <span class="string">"slow"</span>, <span class="string">"slow"</span>, <span class="string">"fast"</span>, <span class="string">"insane"</span>)</div><div class="line">factor_speed_vector &lt;- factor(speed_vector, ordered = <span class="literal">TRUE</span>, levels = c(<span class="string">"slow"</span>, <span class="string">"fast"</span>, <span class="string">"insane"</span>))</div><div class="line"></div><div class="line"><span class="comment"># Factor value for second data analyst</span></div><div class="line">da2 &lt;- factor_speed_vector[<span class="number">2</span>]</div><div class="line"></div><div class="line"><span class="comment"># Factor value for fifth data analyst</span></div><div class="line">da5 &lt;- factor_speed_vector[<span class="number">5</span>]</div><div class="line"></div><div class="line"><span class="comment"># Is data analyst 2 faster than data analyst 5?</span></div><div class="line">da2 &gt; da5</div></pre></td></tr></table></figure>
+<p>FALSE</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/05/R-Factors/" data-id="ciys42gue0006s8u5cy03v3qq" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/02/05/R-Factors/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/05/Data-Frames/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          R: Data Frames
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/11/Numpy-and-Pandas-2D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Numpy and Pandas 2D</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Numpy/" style="font-size: 15px;">Numpy</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/R/" style="font-size: 15px;">R</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/05/Data-Frames/">R: Data Frames</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/05/R-Factors/">R: Factors</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/11/Numpy-and-Pandas-2D/">Numpy and Pandas 2D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/09/Numpy-and-Pandas-1D/">Numpy and Pandas 1D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/defaultdict/">Python Module: defaultdict</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CB Hsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'cbhsu';
+  
+  var disqus_url = 'http://yoursite.com/2017/02/05/R-Factors/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

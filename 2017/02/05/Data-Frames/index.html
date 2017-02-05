@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>R: Data Frames | CB&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Datacamp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R: Data Frames">
+<meta property="og:url" content="http://yoursite.com/2017/02/05/Data-Frames/index.html">
+<meta property="og:site_name" content="CB's Blog">
+<meta property="og:description" content="Datacamp">
+<meta property="og:updated_time" content="2017-02-05T03:33:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R: Data Frames">
+<meta name="twitter:description" content="Datacamp">
+  
+    <link rel="alternate" href="/atom.xml" title="CB&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89921841-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CB&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Data-Frames" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/05/Data-Frames/" class="article-date">
+  <time datetime="2017-02-05T03:29:48.000Z" itemprop="datePublished">2017-02-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      R: Data Frames
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.datacamp.com" target="_blank" rel="external">Datacamp</a><br><a id="more"></a></p>
+<h2 id="Creating-a-data-frame"><a href="#Creating-a-data-frame" class="headerlink" title="Creating a data frame"></a>Creating a data frame</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition of vectors</span></div><div class="line">name &lt;- c(<span class="string">"Mercury"</span>, <span class="string">"Venus"</span>, <span class="string">"Earth"</span>, <span class="string">"Mars"</span>, <span class="string">"Jupiter"</span>, <span class="string">"Saturn"</span>, <span class="string">"Uranus"</span>, <span class="string">"Neptune"</span>)</div><div class="line">type &lt;- c(<span class="string">"Terrestrial planet"</span>, <span class="string">"Terrestrial planet"</span>, <span class="string">"Terrestrial planet"</span>, </div><div class="line">          <span class="string">"Terrestrial planet"</span>, <span class="string">"Gas giant"</span>, <span class="string">"Gas giant"</span>, <span class="string">"Gas giant"</span>, <span class="string">"Gas giant"</span>)</div><div class="line">diameter &lt;- c(<span class="number">0.382</span>, <span class="number">0.949</span>, <span class="number">1</span>, <span class="number">0.532</span>, <span class="number">11.209</span>, <span class="number">9.449</span>, <span class="number">4.007</span>, <span class="number">3.883</span>)</div><div class="line">rotation &lt;- c(<span class="number">58.64</span>, -<span class="number">243.02</span>, <span class="number">1</span>, <span class="number">1.03</span>, <span class="number">0.41</span>, <span class="number">0.43</span>, -<span class="number">0.72</span>, <span class="number">0.67</span>)</div><div class="line">rings &lt;- c(<span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>, <span class="literal">TRUE</span>, <span class="literal">TRUE</span>, <span class="literal">TRUE</span>)</div><div class="line"></div><div class="line"><span class="comment"># Create a data frame from the vectors</span></div><div class="line">planets_df &lt;- data.frame(name, type, diameter, rotation, rings)</div><div class="line">print(planets_df)</div><div class="line">str(planets_df)</div></pre></td></tr></table></figure>
+<pre><code>     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+&apos;data.frame&apos;:    8 obs. of  5 variables:
+ $ name    : Factor w/ 8 levels &quot;Earth&quot;,&quot;Jupiter&quot;,..: 4 8 1 3 2 6 7 5
+ $ type    : Factor w/ 2 levels &quot;Gas giant&quot;,&quot;Terrestrial planet&quot;: 2 2 2 2 1 1 1 1
+ $ diameter: num  0.382 0.949 1 0.532 11.209 ...
+ $ rotation: num  58.64 -243.02 1 1.03 0.41 ...
+ $ rings   : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
+</code></pre><h2 id="Selection-of-data-frame-elements"><a href="#Selection-of-data-frame-elements" class="headerlink" title="Selection of data frame elements"></a>Selection of data frame elements</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># The planets_df data frame from the previous exercise is pre-loaded</span></div><div class="line"></div><div class="line"><span class="comment"># Print out diameter of Mercury (row 1, column 3)</span></div><div class="line">print(planets_df[<span class="number">1</span>,<span class="number">3</span>])</div><div class="line"></div><div class="line"><span class="comment"># Print out data for Mars (entire fourth row)</span></div><div class="line">print(planets_df[<span class="number">4</span>,])</div></pre></td></tr></table></figure>
+<pre><code>[1] 0.382
+  name               type diameter rotation rings
+4 Mars Terrestrial planet    0.532     1.03 FALSE
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># The planets_df data frame from the previous exercise is pre-loaded</span></div><div class="line"></div><div class="line"><span class="comment"># Select first 5 values of diameter column</span></div><div class="line">print(planets_df[<span class="number">1</span>:<span class="number">5</span>, <span class="string">"diameter"</span>])</div></pre></td></tr></table></figure>
+<pre><code>[1]  0.382  0.949  1.000  0.532 11.209
+</code></pre><h2 id="Only-planets-with-rings"><a href="#Only-planets-with-rings" class="headerlink" title="Only planets with rings"></a>Only planets with rings</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># planets_df is pre-loaded in your workspace</span></div><div class="line"></div><div class="line"><span class="comment"># Select the rings variable from planets_df</span></div><div class="line">rings_vector &lt;- planets_df$rings</div><div class="line">  </div><div class="line"><span class="comment"># Print out rings_vector</span></div><div class="line">rings_vector</div></pre></td></tr></table></figure>
+<ol class="list-inline"><br>    <li>FALSE</li><br>    <li>FALSE</li><br>    <li>FALSE</li><br>    <li>FALSE</li><br>    <li>TRUE</li><br>    <li>TRUE</li><br>    <li>TRUE</li><br>    <li>TRUE</li><br></ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># planets_df and rings_vector are pre-loaded in your workspace</span></div><div class="line"></div><div class="line"><span class="comment"># Adapt the code to select all columns for planets with rings</span></div><div class="line">print(planets_df[rings_vector, ])</div></pre></td></tr></table></figure>
+<pre><code>     name      type diameter rotation rings
+5 Jupiter Gas giant   11.209     0.41  TRUE
+6  Saturn Gas giant    9.449     0.43  TRUE
+7  Uranus Gas giant    4.007    -0.72  TRUE
+8 Neptune Gas giant    3.883     0.67  TRUE
+</code></pre><h2 id="Only-planets-with-rings-but-shorter"><a href="#Only-planets-with-rings-but-shorter" class="headerlink" title="Only planets with rings but shorter"></a>Only planets with rings but shorter</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># planets_df is pre-loaded in your workspace</span></div><div class="line"></div><div class="line"><span class="comment"># Select planets with diameter &lt; 1</span></div><div class="line">print(subset(planets_df, diameter &lt; <span class="number">1</span>))</div></pre></td></tr></table></figure>
+<pre><code>     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+</code></pre><h2 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Play around with the order function in the console</span></div><div class="line">a &lt;- c(<span class="number">100</span>, <span class="number">10</span>, <span class="number">1000</span>)</div><div class="line">a[order(a)]</div></pre></td></tr></table></figure>
+<ol class="list-inline"><br>    <li>10</li><br>    <li>100</li><br>    <li>1000</li><br></ol>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># planets_df is pre-loaded in your workspace</span></div><div class="line"></div><div class="line"><span class="comment"># Use order() to create positions</span></div><div class="line">positions &lt;- order(planets_df$diameter)</div><div class="line">print(positions)</div><div class="line"></div><div class="line"><span class="comment"># Use positions to sort planets_df</span></div><div class="line">print(planets_df[positions, ])</div></pre></td></tr></table></figure>
+<pre><code>[1] 1 4 2 3 8 7 6 5
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/05/Data-Frames/" data-id="ciys431m40000scu5arxf4wfh" class="article-share-link">Share</a>
+      
+        <a href="http://yoursite.com/2017/02/05/Data-Frames/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/05/R-Factors/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">R: Factors</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Numpy/" style="font-size: 15px;">Numpy</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/R/" style="font-size: 15px;">R</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/05/Data-Frames/">R: Data Frames</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/05/R-Factors/">R: Factors</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/11/Numpy-and-Pandas-2D/">Numpy and Pandas 2D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/09/Numpy-and-Pandas-1D/">Numpy and Pandas 1D</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/defaultdict/">Python Module: defaultdict</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CB Hsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'cbhsu';
+  
+  var disqus_url = 'http://yoursite.com/2017/02/05/Data-Frames/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
